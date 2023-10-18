@@ -9,9 +9,17 @@ function getUserNumber(promptText) {
  function getUserOperation() {
 	let input;
 	do {
-	  input = prompt("Выберите операцию: сложение (+), вычитание (-), умножение (*) или деление (/)");
+	  input = prompt("Выберите операцию: сложение (+), вычитание (-), умножение (*), деление (/): ");
 	} while (input === null || !/[-+*/]/.test(input));
 	return input;
+ }
+ 
+ function calculateAverage(numbers) {
+	if (numbers.length === 0) {
+	  return NaN;
+	}
+	const sum = numbers.reduce((acc, val) => acc + val, 0);
+	return sum / numbers.length;
  }
  
  function main() {
@@ -44,7 +52,12 @@ function getUserNumber(promptText) {
 	}
  
 	alert(`Результат: ${result}`);
+ 
+	const numbers = [num1, num2];
+	const average = calculateAverage(numbers);
+	alert(`Среднее значение: ${average}`);
  }
+ 
  
  main();
  
